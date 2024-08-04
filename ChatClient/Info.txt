@@ -1,0 +1,4 @@
+0 - connect client to server
+1 - connect server to client
+5 - message
+10 - disconnect
