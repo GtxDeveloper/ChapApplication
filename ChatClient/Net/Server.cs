@@ -1,4 +1,5 @@
 using System.Net.Sockets;
+using SimpleChatAppWithoutDesign.MVM.Model;
 using SimpleChatAppWithoutDesign.Net.IO;
 
 namespace SimpleChatAppWithoutDesign.Net;
@@ -25,10 +26,15 @@ public class Server
             PacketReader = new PacketReader(_client.GetStream());
             if (!string.IsNullOrEmpty(username))
             {
+                var user = new UserModel()
+                {
+                    UserName = username,
+                };
                 var connectPacket = new PacketBuilder();
                 connectPacket.WriteUpCode(0);
-                connectPacket.WriteString(username);
+                connectPacket.WriteUser(user);
                 _client.Client.Send(connectPacket.GetPacketBytes());
+                Console.WriteLine($"User {user.UserName} sended ");
             }
 
             ReadPackets();
@@ -61,11 +67,11 @@ public class Server
         });
     }
 
-    public void SendMessageToServer(string message)
+    public void SendMessageToServer(MessageModel message)
     {
         var messagePacket = new PacketBuilder();
         messagePacket.WriteUpCode(5);
-        messagePacket.WriteString(message);
+        messagePacket.WriteMessage(message);
         _client.Client.Send(messagePacket.GetPacketBytes());
     }
 }

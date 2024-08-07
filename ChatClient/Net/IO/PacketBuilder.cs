@@ -1,5 +1,8 @@
 using System.IO;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using SimpleChatAppWithoutDesign.MVM.Model;
 
 namespace SimpleChatAppWithoutDesign.Net.IO;
 
@@ -16,12 +19,31 @@ public class PacketBuilder
         _ms.WriteByte(opcode);
     }
 
-    public void WriteString(string msg)
+    public void WriteMessage(MessageModel msg)
     {
-        var msgLenght = msg.Length;
+        var jsonMsg = JsonSerializer.Serialize<MessageModel>(msg);
+        
+        var msgLenght = jsonMsg.Length;
         
         _ms.Write(BitConverter.GetBytes(msgLenght));
-        _ms.Write(Encoding.ASCII.GetBytes(msg));
+        _ms.Write(Encoding.ASCII.GetBytes(jsonMsg));
+    }
+    
+    public void WriteUser(UserModel msg)
+    {
+        var jsonMsg = JsonSerializer.Serialize<UserModel>(msg);
+        
+        var msgLenght = jsonMsg.Length;
+        
+        _ms.Write(BitConverter.GetBytes(msgLenght));
+        _ms.Write(Encoding.ASCII.GetBytes(jsonMsg));
+    }
+
+    public void WriteUID(string uid)
+    {
+        var msgLength = uid.Length;
+        _ms.Write(BitConverter.GetBytes(msgLength));
+        _ms.Write(Encoding.ASCII.GetBytes(uid));
     }
 
     public byte[] GetPacketBytes()

@@ -19,7 +19,7 @@
         <DockPanel>
             <TextBox Height="25"
                      DockPanel.Dock="Top"
-                     Text="{Binding Username, UpdateSourceTrigger= PropertyChanged}"></TextBox>
+                     Text="{Binding UsernameString, UpdateSourceTrigger= PropertyChanged}"></TextBox>
             <Button Height="25"
                     DockPanel.Dock="Top"
                     Content="Connect"
@@ -34,15 +34,28 @@
         
         <StackPanel Grid.Column="1">
             <ListView Height="380"
-                      ItemsSource="{Binding RecievedMessages}">
+                      ItemsSource="{Binding RecievedMessages}"
+                      Background="Transparent"
+                      ItemContainerStyle="{StaticResource Message}"
+                      SelectedItem="{Binding SelectedReplyMessage}">
                 
             </ListView>
             
             <StackPanel Orientation="Horizontal">
                 <TextBox Height="55"
-                         Width="545"
+                         Width="495"
                          VerticalAlignment="Center"
-                         Text="{Binding  SendingMessage, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                         Text="{Binding  SendingMessageString, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <Button Width="55"
+                        Height="55"
+                        Background="Transparent"
+                        BorderThickness="0">
+                    <Button.Content>
+                        <Image Width="30"
+                               Height="30"
+                               Source="../../Img/sendimg.png"/>
+                    </Button.Content>
+                </Button>
                 <Button Width="55"
                         Content="Send"
                         Command="{Binding SendMessageCommand}"></Button>

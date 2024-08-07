@@ -1,14 +1,13 @@
 using System.Net.Sockets;
 using ChatServer.Net.IO;
+using SimpleChatAppWithoutDesign.MVM.Model;
 
 namespace ChatServer;
 
 public class Client
 {
-    public string Name { get; set; }
-    
-    public Guid UID { get; set; }
-    
+    public UserModel User { get; set; }
+
     public TcpClient ClientSocket { get; set; }
 
     private PacketReader _packetReader;
@@ -16,14 +15,14 @@ public class Client
     public Client(TcpClient client)
     {
         ClientSocket = client;
-        UID = Guid.NewGuid();
+       
         _packetReader = new PacketReader(ClientSocket.GetStream());
 
         var opcode = _packetReader.ReadByte();
 
-        Name = _packetReader.ReadMessage();
+        User = _packetReader.ReadUser();
         
-        Console.WriteLine($"{DateTime.Now}: Client has connected with the username: {Name}");
+        Console.WriteLine($"{DateTime.Now}: Client has connected with the username: {User.UserName}");
 
         Task.Run(() => Process());
     }
@@ -39,8 +38,11 @@ public class Client
                 {
                     case 5:
                         var msg = _packetReader.ReadMessage();
-                        Console.WriteLine($"{DateTime.Now}: Message recieved {msg}");
-                        Program.BroadcastMessage($"[{DateTime.Now}] : [{Name}] : {msg}");
+                        Console.WriteLine($"{DateTime.Now}: Message recieved {msg.Message}");
+                        msg.SendingTime = DateTime.Now;
+                        msg.MessageBy = User.UserName;
+                        msg.FullMessage = $"[{msg.SendingTime}] : [{msg.MessageBy}] : {msg.Message}";
+                        Program.BroadcastMessage(msg);
                         break;
                     default:
                         break;
@@ -48,8 +50,8 @@ public class Client
             }
             catch (Exception e)
             {
-                Console.WriteLine($"{UID.ToString()}: Disconnected");
-                Program.BroadcastDisconnect(UID.ToString());
+                Console.WriteLine($"{User.IUD}: Disconnected");
+                Program.BroadcastDisconnect(User.IUD);
                 ClientSocket.Close();
                 break;
             }   
