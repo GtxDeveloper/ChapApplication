@@ -5,23 +5,52 @@ using System.Windows.Threading;
 using SimpleChatAppWithoutDesign.Core;
 using SimpleChatAppWithoutDesign.MVM.Model;
 using SimpleChatAppWithoutDesign.Net;
+using SimpleChatAppWithoutDesign;
 
 namespace SimpleChatAppWithoutDesign.MVM.ViewModel;
 
-public class MainViewModel
+public class MainViewModel : ObservableObject
 {
     public ObservableCollection<UserModel> Users { get; set; }
     public ObservableCollection<MessageModel> RecievedMessages { get; set; }
     
-    public MessageModel SelectedReplyMessage { get; set; }
+    private MessageModel _selectedReplyMessage { get; set; }
+
+    public MessageModel SelectedReplyMessage
+    {
+        get
+        {
+            return _selectedReplyMessage;
+        }
+        set
+        {
+            _selectedReplyMessage = value;
+            OnPropertyChanged();
+        }
+    }
+
     public RelayCommand ConnectToServerCommand { get; set; }
     public RelayCommand SendMessageCommand { get; set; }
     
     public UserModel SelectedContact { get; set; }
 
     public string UsernameString { get; set; }
-    public string SendingMessageString { get; set; }
+
+    private string _sendingMessageString;
     
+    public string SendingMessageString
+    {
+        get
+        {
+            return _sendingMessageString;
+        }
+        set
+        {
+            _sendingMessageString = value;
+            OnPropertyChanged();
+        }
+    }
+
     public MessageModel SendingMessage { get; set; }
     private Server _server;
 
@@ -36,7 +65,6 @@ public class MainViewModel
         _server.userDisconnectEvent += RemoveUser;
         _server.msgRecievedEvent += MsgRecievedEvent;
         ConnectToServerCommand = new RelayCommand(o => _server.ConnecToServer(UsernameString), o => !string.IsNullOrEmpty(UsernameString));
-
         SendMessageCommand =
             new RelayCommand(o =>
             {
@@ -45,6 +73,7 @@ public class MainViewModel
                     Message = SendingMessageString,
                     UID = new Guid().ToString()
                 };
+                SendingMessageString = "";
                 if (SelectedReplyMessage != null)
                 {
                     SendingMessage.IsReply = true;

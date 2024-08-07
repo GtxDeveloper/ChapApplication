@@ -45,9 +45,9 @@
                                 <RowDefinition Height="Auto"></RowDefinition>
                                 <RowDefinition Height="Auto"></RowDefinition>
                             </Grid.RowDefinitions>
-                            
-                            <TextBlock  Text="{Binding ReplyMessage}"/>
-                            <TextBlock Grid.Row="1" Text="{Binding FullMessage}"/>
+
+                            <TextBlock Text="{Binding ReplyMessage}" />
+                            <TextBlock Grid.Row="1" Text="{Binding FullMessage}" />
 
                         </Grid>
                     </ControlTemplate>
