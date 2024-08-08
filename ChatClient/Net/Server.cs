@@ -13,23 +13,22 @@ public class Server
     public event Action msgRecievedEvent;
     public event Action userDisconnectEvent;
 
+    public event Action userTypingEvent;
+
     public Server()
     {
         _client = new TcpClient();
     }
 
-    public void ConnecToServer(string username)
+    public void ConnecToServer(UserModel user)
     {
         if (!_client.Connected)
         {
             _client.Connect("127.0.0.1", 2000);
             PacketReader = new PacketReader(_client.GetStream());
-            if (!string.IsNullOrEmpty(username))
+            if (!string.IsNullOrEmpty(user.UserName))
             {
-                var user = new UserModel()
-                {
-                    UserName = username,
-                };
+                
                 var connectPacket = new PacketBuilder();
                 connectPacket.WriteUpCode(0);
                 connectPacket.WriteUser(user);
@@ -59,6 +58,9 @@ public class Server
                     case 10:
                         userDisconnectEvent?.Invoke();
                         break;
+                    case 15:
+                        userTypingEvent?.Invoke();
+                        break;
                     default:
                         Console.WriteLine("ah yes..");
                         break;
@@ -74,4 +76,13 @@ public class Server
         messagePacket.WriteMessage(message);
         _client.Client.Send(messagePacket.GetPacketBytes());
     }
+
+    public void TypingEvent(UserModel mainUser)
+    {
+        var packet = new PacketBuilder();
+        packet.WriteUpCode(15);
+        packet.WriteUser(mainUser);
+        _client.Client.Send(packet.GetPacketBytes());
+    }
 }
+

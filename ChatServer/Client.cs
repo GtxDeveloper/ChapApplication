@@ -44,6 +44,10 @@ public class Client
                         msg.FullMessage = $"[{msg.SendingTime}] : [{msg.MessageBy}] : {msg.Message}";
                         Program.BroadcastMessage(msg);
                         break;
+                    case 15:
+                        var usr = _packetReader.ReadUser();
+                        Program.BroadcastIsTypingEvent(usr);
+                        break;
                     default:
                         break;
                 }

@@ -64,7 +64,17 @@ public class MainViewModel : ObservableObject
         _server.connectedEvent += UserConnected;
         _server.userDisconnectEvent += RemoveUser;
         _server.msgRecievedEvent += MsgRecievedEvent;
-        ConnectToServerCommand = new RelayCommand(o => _server.ConnecToServer(UsernameString), o => !string.IsNullOrEmpty(UsernameString));
+        _server.userTypingEvent += UserTyping;
+        MainUser = new UserModel();
+        ConnectToServerCommand = new RelayCommand(o =>
+        {
+            MainUser = new UserModel()
+            {
+                UserName = UsernameString
+            };
+            _server.ConnecToServer(MainUser);
+            MonitorIsTyping();
+        }, o => !string.IsNullOrEmpty(UsernameString));
         SendMessageCommand =
             new RelayCommand(o =>
             {
@@ -82,6 +92,13 @@ public class MainViewModel : ObservableObject
                 
                 _server.SendMessageToServer(SendingMessage);
             }, o => !string.IsNullOrEmpty(SendingMessageString));
+    }
+
+    private void UserTyping()
+    {
+        var typingUser = _server.PacketReader.ReadUser();
+        var usr = Users.FirstOrDefault(x => x.IUD == typingUser.IUD);
+        usr.IsTyping = typingUser.IsTyping;
     }
 
     private void MsgRecievedEvent()
@@ -104,6 +121,24 @@ public class MainViewModel : ObservableObject
         if (!Users.Any(x => x.IUD == user.IUD))
         {
             Application.Current.Dispatcher.Invoke(() => Users.Add(user));
+        }
+    }
+
+    private async Task MonitorIsTyping()
+    {
+        while (true)
+        {
+            if (!string.IsNullOrEmpty(SendingMessageString))
+            {
+                MainUser.IsTyping = true;
+                _server.TypingEvent(MainUser);
+            }
+            else
+            {
+                MainUser.IsTyping = false;
+                _server.TypingEvent(MainUser);
+            }
+            await Task.Delay(2000);
         }
     }
 }

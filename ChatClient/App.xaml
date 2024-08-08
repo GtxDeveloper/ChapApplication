@@ -18,10 +18,28 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListViewItem">
-                        <TextBlock Text="{Binding UserName}"
-                                   Background="{TemplateBinding Background}"
-                                   Foreground="{TemplateBinding Foreground}">
-                        </TextBlock>
+                        <StackPanel Orientation="Horizontal"
+                                    Background="{TemplateBinding Background}"
+                                    VerticalAlignment="Center">
+                            <Image Source="../../Img/greenDot.png" Width="8" Height="8"
+                                   Margin="10,0" />
+                            <TextBlock Text="{Binding UserName}" Foreground="{TemplateBinding Foreground}" />
+                            <Image Source="../../Img/writing.png" Width="15" Height="15" Margin="110, 0, 0, 0">
+                                <Image.Style>
+                                    <Style TargetType="Image">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsTyping , UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                                <Setter Property="Visibility" Value="Visible"></Setter>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding IsTyping, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                                <Setter Property="Visibility" Value="Hidden"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                        </StackPanel>
+
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -54,5 +72,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+
     </Application.Resources>
 </Application>

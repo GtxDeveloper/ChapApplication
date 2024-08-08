@@ -64,6 +64,17 @@ class Program
             user.ClientSocket.Client.Send(msgPack.GetPacketBytes());
         }
     }
+
+    public static void BroadcastIsTypingEvent(UserModel typingUser)
+    {
+        foreach (var user in _users)
+        {
+            var msgPack = new PacketBuilder();
+            msgPack.WriteUpCode(15);
+            msgPack.WriteUser(typingUser);
+            user.ClientSocket.Client.Send(msgPack.GetPacketBytes());
+        }
+    }
     
     public static void BroadcastDisconnect(string uid)
     {

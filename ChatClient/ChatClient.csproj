@@ -25,6 +25,10 @@
     <ItemGroup>
       <None Remove="Img\sendimg.png" />
       <Resource Include="Img\sendimg.png" />
+      <None Remove="Img\greenDot.png" />
+      <Resource Include="Img\greenDot.png" />
+      <None Remove="Img\writing.png" />
+      <Resource Include="Img\writing.png" />
     </ItemGroup>
 
 </Project>

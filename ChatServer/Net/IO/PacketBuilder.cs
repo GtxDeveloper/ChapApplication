@@ -55,4 +55,11 @@ public class PacketBuilder
     {
         return _ms.ToArray();
     }
+    
+    public void TypingEvent(UserModel mainUser)
+    {
+        var packet = new PacketBuilder();
+        packet.WriteUpCode(15);
+        packet.WriteUser(mainUser);
+    }
 }
