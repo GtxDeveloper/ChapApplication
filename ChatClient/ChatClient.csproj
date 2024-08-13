@@ -18,8 +18,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="AForge.Video" Version="2.2.5" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+      <PackageReference Include="SixLabors.ImageSharp" Version="3.1.5" />
     </ItemGroup>
 
     <ItemGroup>
@@ -29,6 +31,16 @@
       <Resource Include="Img\greenDot.png" />
       <None Remove="Img\writing.png" />
       <Resource Include="Img\writing.png" />
+      <None Remove="Img\deleteigm.png" />
+      <Resource Include="Img\deleteigm.png" />
+      <None Remove="Img\camoff.png" />
+      <Resource Include="Img\camoff.png" />
+      <None Remove="Img\camon.png" />
+      <Resource Include="Img\camon.png" />
+      <None Remove="Img\micoff.png" />
+      <Resource Include="Img\micoff.png" />
+      <None Remove="Img\micon.png" />
+      <Resource Include="Img\micon.png" />
     </ItemGroup>
 
 </Project>

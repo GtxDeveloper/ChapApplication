@@ -1,0 +1,67 @@
+<Window x:Class="SimpleChatAppWithoutDesign.MVM.View.VideoChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:SimpleChatAppWithoutDesign.MVM.View"
+        mc:Ignorable="d"
+        Title="VideoChatWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#3C3F41">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="CornflowerBlue" BorderThickness="2">
+                <Image x:Name="Image_Send"></Image>
+            </Border>
+            <Border Grid.Column="1" BorderBrush="OrangeRed" BorderThickness="2">
+                <Image x:Name="Image_Recieve"></Image>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1"  Background="#262626">
+            <StackPanel Orientation="Horizontal" Margin="300,0,300,0">
+                <Button Click="Button_StartCall_OnClick" x:Name="Button_StartCall" Width="50" Height="50" Content="GO" Background="Green" Foreground="White" FontWeight="Bold" FontSize="20" Margin="5">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Ellipse Fill="{TemplateBinding Background}" Stroke="Transparent" StrokeThickness="2"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="Button_Video" Click="Button_Video_OnClick" Width="50" Height="50" Background="#2b2d31" Foreground="White" FontWeight="Bold" FontSize="20" Margin="5">
+                    <Button.Content>
+                        <Image x:Name="Image_ButtonVideo" Source="../../Img/camoff.png" Width="25"></Image>
+                    </Button.Content>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Ellipse Fill="{TemplateBinding Background}" Stroke="Transparent" StrokeThickness="2"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="Button_Audio" Click="Button_Audio_OnClick" Width="50" Height="50" Background="#2b2d31" Foreground="White" FontWeight="Bold" FontSize="20" Margin="5">
+                    <Button.Content>
+                        <Image x:Name="Image_ButtonAudio" Source="../../Img/micoff.png" Width="25"></Image>
+                    </Button.Content>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Ellipse Fill="{TemplateBinding Background}" Stroke="Transparent" StrokeThickness="2"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

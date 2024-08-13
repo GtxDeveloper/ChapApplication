@@ -30,6 +30,18 @@ public class PacketReader : BinaryReader
         return msg;
     }
 
+    public IpModel ReadIpEndPoint()
+    {
+        byte[] msgBuffer;
+        var lenght = ReadInt32();
+        msgBuffer = new byte[lenght];
+        _ns.Read(msgBuffer, 0, lenght);
+
+        var ipEndPoint = JsonSerializer.Deserialize<IpModel>(Encoding.ASCII.GetString(msgBuffer));
+
+        return ipEndPoint;
+    }
+    
     public UserModel ReadUser()
     {
         byte[] msgBuffer;
@@ -40,6 +52,18 @@ public class PacketReader : BinaryReader
         var jsonMsg = Encoding.ASCII.GetString(msgBuffer);
 
         var msg = JsonSerializer.Deserialize<UserModel>(jsonMsg);
+        return msg;
+    }
+
+    public string ReadString()
+    {
+        byte[] msgBuffer;
+        var lenght = ReadInt32();
+        msgBuffer = new byte[lenght];
+        _ns.Read(msgBuffer, 0, lenght);
+
+        var msg = Encoding.ASCII.GetString(msgBuffer);
+        
         return msg;
     }
 }

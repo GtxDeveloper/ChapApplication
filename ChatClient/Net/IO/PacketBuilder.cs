@@ -1,4 +1,5 @@
 using System.IO;
+using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -22,11 +23,23 @@ public class PacketBuilder
     public void WriteMessage(MessageModel msg)
     {
         var jsonMsg = JsonSerializer.Serialize<MessageModel>(msg);
-        
         var msgLenght = jsonMsg.Length;
-        
         _ms.Write(BitConverter.GetBytes(msgLenght));
         _ms.Write(Encoding.ASCII.GetBytes(jsonMsg));
+    }
+
+    public void WriteIpEndPoint(string ip, int port)
+    {
+        var ipModel = new IpModel()
+        {
+            Ip = ip,
+            Port = port
+        };
+        
+        var json = JsonSerializer.Serialize<IpModel>(ipModel);
+        var msgLenght = json.Length;
+        _ms.Write(BitConverter.GetBytes(msgLenght));
+        _ms.Write(Encoding.ASCII.GetBytes(json));
     }
     
     public void WriteUser(UserModel msg)

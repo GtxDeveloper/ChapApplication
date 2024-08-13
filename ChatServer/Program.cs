@@ -54,7 +54,7 @@ class Program
         }
     }
     
-    public static void BroadcastMessage(string message)
+    public static void BroadcastString(string message)
     {
         foreach (var user in _users)
         {
@@ -88,6 +88,9 @@ class Program
             user.ClientSocket.Client.Send(broadcastPacket.GetPacketBytes());
         }
         
-        BroadcastMessage($"[{disconnectedUser.User.UserName}] Disconnected!");
+        BroadcastMessage(new MessageModel()
+        {
+            FullMessage = $"[{disconnectedUser.User.UserName}] Disconnected!"
+        });
     }
 }

@@ -37,12 +37,9 @@ public class Client
                 switch (opcode)
                 {
                     case 5:
-                        var msg = _packetReader.ReadMessage();
-                        Console.WriteLine($"{DateTime.Now}: Message recieved {msg.Message}");
-                        msg.SendingTime = DateTime.Now;
-                        msg.MessageBy = User.UserName;
-                        msg.FullMessage = $"[{msg.SendingTime}] : [{msg.MessageBy}] : {msg.Message}";
-                        Program.BroadcastMessage(msg);
+                        var msg = _packetReader.ReadString();
+                        Console.WriteLine($"{DateTime.Now}: Message recieved {msg}");
+                        Program.BroadcastString(msg);
                         break;
                     case 15:
                         var usr = _packetReader.ReadUser();

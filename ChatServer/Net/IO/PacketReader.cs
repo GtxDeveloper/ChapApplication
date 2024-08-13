@@ -40,4 +40,16 @@ public class PacketReader : BinaryReader
         var msg = JsonSerializer.Deserialize<UserModel>(jsonMsg);
         return msg;
     }
+
+    public string ReadString()
+    {
+        byte[] msgBuffer;
+        var lenght = ReadInt32();
+        msgBuffer = new byte[lenght];
+        _ns.Read(msgBuffer, 0, lenght);
+
+        var jsonMsg = Encoding.ASCII.GetString(msgBuffer);
+
+        return jsonMsg;
+    }
 }

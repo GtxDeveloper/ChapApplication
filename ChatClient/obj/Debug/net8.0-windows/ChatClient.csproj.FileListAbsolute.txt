@@ -60,3 +60,8 @@ C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatClient\bin\Debug\net
 C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatClient\obj\Debug\net8.0-windows\ChatClient.csproj.AssemblyReference.cache
 C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatClient\obj\Debug\net8.0-windows\ChatClient.sourcelink.json
 C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatClient\obj\Debug\net8.0-windows\ChatClient.csproj.CopyComplete
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatClient\bin\Debug\net8.0-windows\SixLabors.ImageSharp.dll
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatClient\obj\Debug\net8.0-windows\MVM\View\VideoChatWindow.g.cs
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatClient\obj\Debug\net8.0-windows\MVM\View\VideoChatWindow.baml
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatClient\bin\Debug\net8.0-windows\AForge.dll
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatClient\bin\Debug\net8.0-windows\AForge.Video.dll

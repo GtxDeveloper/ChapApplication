@@ -60,3 +60,4 @@ C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatServer\bin\Debug\net
 C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatServer\obj\Debug\net8.0\ChatServer.csproj.AssemblyReference.cache
 C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatServer\obj\Debug\net8.0\ChatServer.sourcelink.json
 C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatServer\obj\Debug\net8.0\ChatServer.csproj.CopyComplete
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatServer\bin\Debug\net8.0\SixLabors.ImageSharp.dll

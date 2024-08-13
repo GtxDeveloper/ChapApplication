@@ -1,0 +1,15 @@
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\bin\Debug\net8.0\AudioServer.exe
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\bin\Debug\net8.0\AudioServer.deps.json
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\bin\Debug\net8.0\AudioServer.runtimeconfig.json
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\bin\Debug\net8.0\AudioServer.dll
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\bin\Debug\net8.0\AudioServer.pdb
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\obj\Debug\net8.0\AudioServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\obj\Debug\net8.0\AudioServer.AssemblyInfoInputs.cache
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\obj\Debug\net8.0\AudioServer.AssemblyInfo.cs
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\obj\Debug\net8.0\AudioServer.csproj.CoreCompileInputs.cache
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\obj\Debug\net8.0\AudioServer.sourcelink.json
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\obj\Debug\net8.0\AudioServer.dll
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\obj\Debug\net8.0\refint\AudioServer.dll
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\obj\Debug\net8.0\AudioServer.pdb
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\obj\Debug\net8.0\AudioServer.genruntimeconfig.cache
+C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\AudioServer\obj\Debug\net8.0\ref\AudioServer.dll

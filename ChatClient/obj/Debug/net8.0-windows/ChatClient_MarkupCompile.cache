@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\landi\RiderProjects\SimpleChatAppWithoutDesign\ChatClient\App.xaml
-31478927541
+4-281093374
 
-15-493782067
-2191817302990
-MVM\View\ChatListElement.xaml;MVM\View\MainWindow.xaml;Themes\Contact.xaml;
+171070562036
+222-93501946
+MVM\View\ChatListElement.xaml;MVM\View\MainWindow.xaml;MVM\View\VideoChatWindow.xaml;Themes\Contact.xaml;
 
 False
 

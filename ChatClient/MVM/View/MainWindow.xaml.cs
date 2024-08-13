@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SimpleChatAppWithoutDesign.MVM.View;
 using SimpleChatAppWithoutDesign.MVM.ViewModel;
 
 namespace SimpleChatAppWithoutDesign;
@@ -48,5 +49,12 @@ public partial class MainWindow : Window
 
             await Task.Delay(200);
         }
+    }
+
+    private void Button_OpenNewWindow_OnClick(object sender, RoutedEventArgs e)
+    {
+        VideoChatWindow videoChatWindow = new VideoChatWindow();
+        
+        videoChatWindow.Show();
     }
 }
