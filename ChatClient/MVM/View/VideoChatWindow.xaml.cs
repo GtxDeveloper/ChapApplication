@@ -13,7 +13,7 @@ public partial class VideoChatWindow : Window
     public bool IsCallActive = false;
     public bool IsAudioActive = false;
     public bool IsVideoActive = false;
-    public UdpClient LocalUdpClient;
+    public UdpClient SenderUdpClient;
     public TcpClient LocalTcpClient;
     public IPEndPoint CurrentIpEndPoint;
     public IPEndPoint ServerIP;
@@ -26,7 +26,7 @@ public partial class VideoChatWindow : Window
         Random random = new Random();
         CurrentIpEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), random.Next(4000, 4100));
         ServerIP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 3000);
-        LocalUdpClient = new UdpClient(CurrentIpEndPoint);
+        SenderUdpClient = new UdpClient(CurrentIpEndPoint);
         LocalTcpClient = new TcpClient();
     }
 

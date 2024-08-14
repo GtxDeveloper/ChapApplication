@@ -11,9 +11,14 @@
                     <Setter Property="Background" Value="Indigo"></Setter>
                     <Setter Property="Foreground" Value="White"></Setter>
                 </Trigger>
+                <Trigger Property="IsSelected" Value="False">
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                    <Setter Property="Foreground" Value="White"></Setter>
+                </Trigger>
             </Style.Triggers>
 
             <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="FontWeight" Value="SemiBold"></Setter>
 
             <Setter Property="Template">
                 <Setter.Value>
@@ -24,7 +29,7 @@
                             <Image Source="../../Img/greenDot.png" Width="8" Height="8"
                                    Margin="10,0" />
                             <TextBlock Text="{Binding UserName}" Foreground="{TemplateBinding Foreground}" />
-                            <Image Source="../../Img/writing.png" Width="15" Height="15" Margin="110, 0, 0, 0">
+                            <Image Source="../../Img/writing.png" Width="20" Height="20" Margin="110, 0, 0, 0">
                                 <Image.Style>
                                     <Style TargetType="Image">
                                         <Style.Triggers>
@@ -54,6 +59,7 @@
             </Style.Triggers>
 
             <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
 
             <Setter Property="Template">
                 <Setter.Value>

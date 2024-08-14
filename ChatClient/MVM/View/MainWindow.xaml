@@ -11,28 +11,30 @@
         <viewmodel:MainViewModel></viewmodel:MainViewModel>
     </Window.DataContext>
 
-    <Grid>
+    <Grid Background="#2F3136">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <DockPanel>
-            <TextBox Height="25"
+            <TextBox Background="#3e4147" BorderThickness="0" Foreground="White" Height="25"
                      DockPanel.Dock="Top"
                      Text="{Binding UsernameString, UpdateSourceTrigger= PropertyChanged}">
             </TextBox>
-            <Button Height="25"
+            <Button Background="DarkSlateGray" BorderBrush="Black" Height="25"
                     DockPanel.Dock="Top"
                     Content="Connect"
                     Command="{Binding ConnectToServerCommand}">
             </Button>
             <Button
+                Background="DarkSlateGray" BorderBrush="Black"
                 Height="25"
                 DockPanel.Dock="Top"
                 Content="Video Call"
                 Margin="0,5,0,0"
                 x:Name="Button_OpenNewWindow"
-                Click="Button_OpenNewWindow_OnClick"></Button>
+                Click="Button_OpenNewWindow_OnClick">
+            </Button>
             <ListView ItemsSource="{Binding Users}"
                       SelectedItem="{Binding SelectedContact}"
                       Background="Transparent"
@@ -47,7 +49,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel>
-                <ListView Height="380"
+                <ListView BorderThickness="0" Height="380"
                           ItemsSource="{Binding RecievedMessages}"
                           Background="Transparent"
                           ItemContainerStyle="{StaticResource Message}"
@@ -61,15 +63,17 @@
                             Visibility="Hidden"
                             x:Name="StackPanel_SelectedMessage">
                     <TextBlock Text="Replying:"
-                               Margin="5,0,5,0" />
-                    <TextBlock Text="{Binding SelectedReplyMessage.FullMessage, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                               Margin="5,0,5,0" 
+                               Foreground="White"/>
+                    <TextBlock Text="{Binding SelectedReplyMessage.FullMessage, UpdateSourceTrigger=PropertyChanged}"
+                               Foreground="White"></TextBlock>
                     <Button Content="X" Foreground="Red" FontWeight="Bold" x:Name="Button_CancelSelect"
                             Click="Button_CancelSelect_OnClick">
                     </Button>
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal">
-                    <TextBox Height="55"
+                    <TextBox Background="#3e4147" BorderThickness="0" Foreground="White" Height="55"
                              Width="495"
                              VerticalAlignment="Center"
                              Text="{Binding  SendingMessageString, UpdateSourceTrigger=PropertyChanged}">
@@ -77,9 +81,8 @@
                             <KeyBinding Command="{Binding SendMessageCommand}" Key="Return"></KeyBinding>
                         </TextBox.InputBindings>
                     </TextBox>
-                    <Button Width="55"
+                    <Button Background="#3e4147"  Width="55"
                             Height="55"
-                            Background="Transparent"
                             BorderThickness="0">
 
                         <Button.Style>
@@ -114,9 +117,11 @@
                             </Image>
                         </Button.Content>
                     </Button>
-                    <Button Width="55"
-                            Content="Send"
-                            Command="{Binding SendMessageCommand}">
+                    <Button
+                        Background="#3e4147" BorderThickness="0" 
+                        Width="55"
+                        Content="Send"
+                        Command="{Binding SendMessageCommand}">
                     </Button>
                 </StackPanel>
             </StackPanel>

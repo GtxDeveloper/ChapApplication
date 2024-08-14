@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wPiundmb6jl7JFdAQQrP/LqRPNVXN/SpyerhYtqzMLh8GXETb+V5rXUHCOVbXCt8DaGHavME98KLyFpwsNoRiQ==",
+  "dgSpecHash": "jCL1GtyWjaNJtHbBKOpn+7T75u/L8hKfJ0obXMTrb+I7hKTNmbfIbvBP9LDzHVsrVaUb2l7AQQGe9/bpG+RUcQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\landi\\RiderProjects\\SimpleChatAppWithoutDesign\\ChatClient\\ChatClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\landi\\.nuget\\packages\\aforge\\2.2.5\\aforge.2.2.5.nupkg.sha512",
     "C:\\Users\\landi\\.nuget\\packages\\aforge.video\\2.2.5\\aforge.video.2.2.5.nupkg.sha512",
+    "C:\\Users\\landi\\.nuget\\packages\\aforge.video.directshow\\2.2.5\\aforge.video.directshow.2.2.5.nupkg.sha512",
     "C:\\Users\\landi\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\landi\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\landi\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
@@ -119,6 +120,16 @@
       "warningLevel": 1,
       "message": "Package 'AForge.Video 2.2.5' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "AForge.Video",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'AForge.Video.DirectShow 2.2.5' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "AForge.Video.DirectShow",
       "targetGraphs": [
         "net8.0-windows7.0"
       ]

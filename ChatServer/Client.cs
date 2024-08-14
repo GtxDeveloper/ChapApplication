@@ -38,7 +38,6 @@ public class Client
                 {
                     case 5:
                         var msg = _packetReader.ReadString();
-                        Console.WriteLine($"{DateTime.Now}: Message recieved {msg}");
                         Program.BroadcastString(msg);
                         break;
                     case 15:
